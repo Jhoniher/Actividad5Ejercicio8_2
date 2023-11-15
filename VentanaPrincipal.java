@@ -77,7 +77,46 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
         menor.setText("Nota menor=");
         menor.setBounds(20,300,120,23);
 
-        
+        contenedor.add(nota1);
+        contenedor.add(campoNota1);
+        contenedor.add(nota2);
+        contenedor.add(campoNota2);
+        contenedor.add(nota3);
+        contenedor.add(campoNota3);
+        contenedor.add(nota4);
+        contenedor.add(campoNota4);
+        contenedor.add(campoNota5);
+        contenedor.add(calcular);
+        contenedor.add(limpiar);
+        contenedor.add(promedio);
+        contenedor.add(desviacion);
+        contenedor.add(mayor);
+        contenedor.add(menor);
+    }
+    @Override
+    public void actionPerformed(ActionEvent evento){
+        if(evento.getSource()==calcular){
+            Notas notas=new Notas();
+            notas.listaNotas[0]=Double.parseDouble(campoNota1.getText());
+            notas.listaNotas[1]=Double.parseDouble(campoNota2.getText());
+            notas.listaNotas[2]=Double.parseDouble(campoNota3.getText());
+            notas.listaNotas[3]=Double.parseDouble(campoNota4.getText());
+            notas.listaNotas[4]=Double.parseDouble(campoNota5.getText());
 
+            notas.calcularPromedio();
+            notas.calcularDesviacion();
+
+            promedio.setText("Promedio = "+String.valueOf(String.format("%.2f",notas.calcularPromedio())));
+            double desv=notas.calcularDesviacion();
+            desviacion.setText("Desviacion estandar = "+String.format("%.2f",desv));
+            mayor.setText("Valor menor = "+String.valueOf(notas.calcularMenor()));
+        }
+        if(evento.getSource()==limpiar){
+            campoNota1.setText("");
+            campoNota2.setText("");
+            campoNota3.setText("");
+            campoNota4.setText("");
+            campoNota5.setText("");
+        }
     }
 }
