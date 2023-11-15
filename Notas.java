@@ -1,4 +1,23 @@
 package Ejercicio8_2;
 
 public class Notas {
+    double[] listaNotas;
+    public Notas(){
+        listaNotas=new double[5];
+    }
+    double calcularPromedio(){
+        double suma=0;
+        for(int i=1; i<listaNotas.length;i++){
+            suma=suma+listaNotas[i];
+        }
+        return (suma/listaNotas.length);
+    }
+    double calcularDesviacion(){
+        double prom=calcularPromedio();
+        double suma=0;
+        for(int i=0;i<listaNotas.length;i++){
+            suma+=Math.pow(listaNotas[i]-prom,2);
+        }
+        return Math.sqrt(suma/listaNotas.length);
+    }
 }
