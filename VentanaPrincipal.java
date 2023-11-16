@@ -63,7 +63,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 
         promedio=new JLabel();
         promedio.setText("Promedio=");
-        promedio.setBounds(20,110,135,23);
+        promedio.setBounds(20,210,135,23);
 
         desviacion=new JLabel();
         desviacion.setText("Desviacion=");
@@ -85,6 +85,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
         contenedor.add(campoNota3);
         contenedor.add(nota4);
         contenedor.add(campoNota4);
+        contenedor.add(nota5);
         contenedor.add(campoNota5);
         contenedor.add(calcular);
         contenedor.add(limpiar);
@@ -109,7 +110,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
             promedio.setText("Promedio = "+String.valueOf(String.format("%.2f",notas.calcularPromedio())));
             double desv=notas.calcularDesviacion();
             desviacion.setText("Desviacion estandar = "+String.format("%.2f",desv));
-            mayor.setText("Valor menor = "+String.valueOf(notas.calcularMenor()));
+            mayor.setText("Valor mayor = "+String.valueOf(notas.calcularMayor()));
+            menor.setText("Valor menor = "+String.valueOf(notas.calcularMenor()));
         }
         if(evento.getSource()==limpiar){
             campoNota1.setText("");
